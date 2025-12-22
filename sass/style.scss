@@ -1,0 +1,670 @@
+@use './components' as *;
+@use './colors' as *;
+@use './mixins' as *;
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+}
+
+.burger-btn {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	background: none;
+	border: 1px solid transparent;
+	padding: 0.6em 1em;
+	border-radius: 8px;
+	z-index: 1000;
+	cursor: pointer;
+
+	&__box {
+		position: relative;
+		width: 40px;
+		height: 40px;
+	}
+
+	&__bars {
+		@include burgerBars;
+		top: 5px;
+
+		&::after,
+		&::before {
+			@include burgerBars;
+		}
+
+		&::after {
+			top: 13px;
+			width: 60%;
+		}
+
+		&::before {
+			top: 27px;
+			width: 30%;
+			transition-delay: 0.1s;
+		}
+	}
+
+	&:hover &__bars::after,
+	&:hover &__bars::before {
+		width: 100%;
+	}
+
+	&:focus,
+	&:active {
+		border: 1px solid white;
+	}
+}
+
+.nav {
+	position: fixed;
+	top: 0;
+	left: 100%;
+	width: 100vw;
+	height: 100vh;
+	background: $blue-gradient-solid;
+	z-index: 100;
+	transition: left 0.5s;
+
+	&--active {
+		left: 0;
+	}
+
+	&__items {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	&__item {
+		list-style: none;
+		font-size: 2.8rem;
+		margin-bottom: 1.5em;
+
+		a {
+			position: relative;
+			text-decoration: none;
+			color: $pure-white;
+			padding: 0.5em 1em;
+		}
+
+		a::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0px;
+			width: 3px;
+			height: 100%;
+			transform: scaleY(0);
+			background-color: $pure-white;
+			transition: transform 0.3s;
+		}
+
+		a:hover::after {
+			transform: scaleY(1);
+		}
+	}
+}
+
+.header {
+	position: relative;
+	height: 75vh;
+	color: $pure_white;
+
+	&__text-box {
+		height: 100%;
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__img {
+		@include backgroundImage('../img/header-mini.jpg');
+		background-attachment: unset;
+	}
+
+	&__heading {
+		font-size: 4.8rem;
+		font-weight: 300;
+		font-family: 'Dancing Script', cursive;
+		padding: 0.2em 0.5em;
+	}
+
+	&__text {
+		font-size: 1.4rem;
+		margin: 0 2em 2em;
+	}
+
+	&__btn {
+		position: relative;
+		border-radius: 8px;
+		padding: 1em 2em;
+		border: none;
+		background-color: $pure-white;
+		color: $dark;
+		text-transform: uppercase;
+		cursor: pointer;
+
+		&::after {
+			background-color: $light-white;
+		}
+	}
+}
+
+// DREAMS
+
+.dreams {
+	&__box {
+		display: flex;
+		flex-direction: column;
+		padding: 0 1.5em;
+	}
+
+	&__img {
+		width: 100%;
+		margin-bottom: 1em;
+	}
+
+	&__box-text {
+		padding: 0em 0 3em;
+	}
+
+	&__title {
+		margin-top: 1em 0;
+		font-size: 1.8rem;
+	}
+
+	&__text {
+		margin-top: 0.5em;
+		color: $dark;
+		font-size: 1.4rem;
+	}
+}
+
+// HEROIMG
+
+.hero-img {
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	@include backgroundImage('../img/hero-mini.jpg');
+	height: 80vh;
+	color: $pure-white;
+	text-align: center;
+
+	&__title {
+		font-size: 4.8rem;
+		font-weight: 300;
+		font-family: 'Dancing Script', cursive;
+		padding: 0.2em 0.5em;
+	}
+
+	&__text {
+		font-size: 1.6rem;
+	}
+
+	hr {
+		width: 80%;
+		margin: 1.5em;
+	}
+}
+
+//ISLANDS
+.islands {
+	color: $pure-white;
+}
+
+.islands__cards {
+	display: flex;
+	flex-direction: column;
+	padding: 0 2em;
+}
+
+.islands__card {
+	position: relative;
+	border-radius: 8px;
+	margin-bottom: 3em;
+	display: flex;
+	flex-direction: column;
+	perspective: 1000px;
+
+	&-front {
+		transition: transform 1s, opacity 1s;
+	}
+	&:hover &-front {
+		opacity: 0;
+		transform: rotateY(-180deg);
+	}
+
+	&:hover &-back {
+		opacity: 1;
+		transform: rotateY(0deg);
+	}
+
+	&-title {
+		display: flex;
+		justify-content: center;
+		margin-top: 1em;
+		font-family: 'Dancing Script', cursive;
+		font-size: 2.8rem;
+	}
+
+	&-img {
+		height: 450px;
+		background-size: cover;
+		background-position: center;
+	}
+
+	&-img--first {
+		background-image: $light-blue-gradient, url('../img/island1.jpg');
+	}
+	&-img--second {
+		background-image: $blue-gradient, url('../img/island2.jpg');
+	}
+	&-img--third {
+		background-image: $purple-gradient, url('../img/island3.jpg');
+	}
+
+	&-btn {
+		&--more {
+			position: absolute;
+			border: none;
+			background: none;
+			color: $pure-white;
+			bottom: 2em;
+			right: 2em;
+			padding: 1em;
+
+			i {
+				margin-right: 0.2em;
+			}
+		}
+	}
+
+	&-info {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-image: $light-blue-gradient-solid;
+		opacity: 0;
+		transform: rotateY(180deg);
+		transition: transform 1s, opacity 1s;
+
+		&-list-items {
+			padding-top: 1.2em;
+		}
+		&-list-item {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			border-bottom: 1px solid white;
+			width: 80%;
+			margin: 0 auto;
+			padding: 1.4em;
+			font-size: 1.4rem;
+
+			&:last-child {
+				border-bottom: none;
+			}
+		}
+
+		&-btn {
+			position: absolute;
+			left: 50%;
+			bottom: 2em;
+			transform: translateX(-50%);
+
+			&--select {
+				width: 80%;
+				padding: 0.8em 1.6em;
+				font-size: 1.4rem;
+				background-color: $green-color;
+				border-radius: 8px;
+				border: none;
+
+				&::after {
+					background-color: $green-color-hover;
+				}
+			}
+		}
+	}
+}
+
+// OFFERS
+
+.offers {
+	position: relative;
+	overflow: hidden;
+	@include backgroundImage('../img/offer-mini.jpg');
+
+	&__box {
+		display: flex;
+		flex-direction: column;
+		margin: 3em;
+		overflow: hidden;
+	}
+
+	&__img {
+		display: block;
+		margin: 0 auto;
+		width: 100%;
+		transition: transform 0.3s;
+
+		&:hover {
+			transform: scale(1.1);
+		}
+	}
+
+	&__description {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		background-color: $pure-white;
+		padding: 3em;
+		z-index: 1;
+	}
+
+	&__title {
+		font-size: 2.4rem;
+		font-weight: 300;
+	}
+
+	&__text {
+		margin-top: 1em;
+		font-size: 1.4rem;
+		color: $dark;
+		&--bottom {
+			margin-bottom: 2em;
+		}
+	}
+
+	&__btn {
+		position: relative;
+		padding: 1em 2em;
+		display: block;
+		background-color: $main-color;
+		width: 100%;
+		margin: 0 auto;
+		border: none;
+		border-radius: 8px;
+		color: $pure-white;
+
+		&::after {
+			background-color: $secondary-color;
+		}
+	}
+
+	.section-heading {
+		color: $pure-white;
+	}
+}
+
+// REVIEWS
+
+.reviews {
+	padding: 4em;
+
+	&__box {
+		position: relative;
+		border: 1px solid #2f2f2f0e;
+		box-shadow: 3px 3px 5px #2f2f2f2f;
+		margin: 8em;
+		width: 100%;
+		margin: 10em auto;
+		padding: 2em;
+	}
+
+	&__img {
+		position: absolute;
+		top: -50px;
+		right: 4em;
+		width: 80px;
+		height: 80px;
+		object-fit: cover;
+		object-position: center;
+		border-radius: 50%;
+	}
+
+	&__text {
+		font-size: 1.4rem;
+		padding: 1em;
+	}
+
+	&__name {
+		padding: 1em;
+		font-weight: bold;
+		font-size: 1.6rem;
+	}
+}
+
+// //////////////////////
+// MEDIA
+// //////////////////////
+
+@media (min-width: 576px) {
+	.header {
+		&__heading {
+			font-size: 5rem;
+			font-weight: 300;
+			font-family: 'Dancing Script', cursive;
+			padding: 0.2em 0.5em;
+		}
+
+		&__text {
+			font-size: 1.6rem;
+			margin: 0 2em 1.5em;
+		}
+	}
+
+	.dreams {
+		&__box {
+			flex-direction: row;
+			margin-bottom: 3em;
+			padding: 0;
+		}
+
+		&__box-img {
+			width: 40%;
+			max-height: 300px;
+			margin-right: 4rem;
+
+			&--right {
+				order: 1;
+				margin-left: 4rem;
+				margin-right: 0;
+			}
+		}
+
+		&__box-text {
+			width: 60%;
+			background-color: $pure-white;
+
+			&--right {
+				text-align: right;
+			}
+		}
+
+		&__title {
+			font-size: 1.8rem;
+		}
+	}
+
+	.offers {
+		&__box {
+			flex-direction: row;
+			margin: 2em;
+			&--right {
+				flex-direction: row-reverse;
+			}
+		}
+
+		&__img {
+			width: 50%;
+		}
+
+		&__title {
+			font-size: 3.6rem;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.header {
+		&__heading {
+			font-size: 8rem;
+			padding: 0;
+		}
+
+		&__text {
+			font-size: 1.8rem;
+			// margin: 0 2em 2em;
+		}
+
+		&__btn {
+			font-size: 1.5rem;
+		}
+	}
+
+	.nav {
+		&__item {
+			font-size: 4rem;
+		}
+	}
+
+	.dreams {
+		&__title {
+			font-size: 2rem;
+		}
+		&__text {
+			font-size: 2rem;
+		}
+	}
+
+	.hero-img {
+		hr {
+			width: 60%;
+			margin: 1.5em;
+		}
+
+		&__title {
+			font-size: 4.8rem;
+		}
+
+		&__text {
+			font-size: 2.2rem;
+		}
+	}
+
+	.islands {
+		.islands__cards {
+			flex-wrap: wrap;
+			flex-direction: row;
+			justify-content: center;
+			padding: 0;
+			width: 100%;
+		}
+
+		.islands__card {
+			width: 40%;
+			margin: 1em;
+			margin: 1.5em;
+		}
+	}
+}
+@media (min-width: 992px) {
+	.header {
+		&__img {
+			background-image: $blue-gradient, url('../img/header-big.jpg');
+		}
+	}
+	.header {
+		&__heading {
+			font-size: 10rem;
+		}
+
+		&__text {
+			font-size: 2.2rem;
+		}
+	}
+
+	.burger-btn {
+		top: 50px;
+		right: 50px;
+	}
+
+	.dreams {
+		&__box-text {
+			padding: 1em 0 3em;
+		}
+		&__title {
+			font-size: 3.6rem;
+		}
+		&__text {
+			font-size: 2.2rem;
+		}
+
+		&__box {
+			margin-bottom: 5em;
+		}
+	}
+
+	.hero-img {
+		background-image: $blue-gradient, url('../img/hero-big.jpg');
+
+		&__title {
+			font-size: 7.2rem;
+		}
+	}
+
+	.offers {
+		position: relative;
+		overflow: hidden;
+		background-image: $blue-gradient, url('../img/offer-big.jpg');
+
+		&__box {
+			max-height: 320px;
+		}
+	}
+}
+
+@media (min-width: 1100px) {
+	.burger-btn {
+		top: 50px;
+		right: 50px;
+	}
+
+	.nav {
+		&__item {
+			font-size: 4.5rem;
+		}
+	}
+
+	.dreams {
+		&__box-text {
+			padding: 5em 1em 3em;
+		}
+	}
+
+	.islands {
+		.islands__card {
+			width: 30%;
+			margin: 1em;
+			margin: 1.5em;
+		}
+	}
+
+	.offers {
+		&__img {
+			width: 40%;
+		}
+	}
+}

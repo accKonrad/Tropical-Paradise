@@ -1,0 +1,646 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+.white-block {
+  position: absolute;
+  background-color: #fff;
+  width: 60%;
+  height: 40px;
+}
+.white-block-left {
+  bottom: -1px;
+  left: -50px;
+  transform: skew(45deg);
+}
+.white-block-right {
+  top: -1px;
+  right: -50px;
+  transform: skew(45deg);
+}
+
+.section-heading {
+  font-weight: 300;
+  font-size: 3rem;
+  color: #1755e7;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 5rem;
+}
+
+.section-padding {
+  padding: 10em 2em;
+}
+
+.btn-special-animation {
+  z-index: 0;
+  overflow: hidden;
+}
+.btn-special-animation::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transform: scaleX(0%);
+  z-index: -1;
+}
+.btn-special-animation::after {
+  transform-origin: right;
+  transition: transform 0.3s;
+}
+.btn-special-animation:hover::after {
+  transform-origin: left;
+  transform: scaleX(100%);
+}
+
+@media (min-width: 768px) {
+  .section-heading {
+    font-size: 4rem;
+  }
+  .section-padding {
+    padding: 16em 2em;
+  }
+}
+@media (min-width: 992px) {
+  .section-heading {
+    font-size: 4.8rem;
+  }
+  .white-block {
+    width: 45%;
+    height: 50px;
+  }
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+}
+
+.burger-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: 1px solid transparent;
+  padding: 0.6em 1em;
+  border-radius: 8px;
+  z-index: 1000;
+  cursor: pointer;
+}
+.burger-btn__box {
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+.burger-btn__bars {
+  position: absolute;
+  content: "";
+  right: 0;
+  height: 3px;
+  width: 100%;
+  background-color: #fff;
+  transition: width 0.3s;
+  top: 5px;
+}
+.burger-btn__bars::after, .burger-btn__bars::before {
+  position: absolute;
+  content: "";
+  right: 0;
+  height: 3px;
+  width: 100%;
+  background-color: #fff;
+  transition: width 0.3s;
+}
+.burger-btn__bars::after {
+  top: 13px;
+  width: 60%;
+}
+.burger-btn__bars::before {
+  top: 27px;
+  width: 30%;
+  transition-delay: 0.1s;
+}
+.burger-btn:hover .burger-btn__bars::after, .burger-btn:hover .burger-btn__bars::before {
+  width: 100%;
+}
+.burger-btn:focus, .burger-btn:active {
+  border: 1px solid white;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 100%;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(45deg, rgb(20, 105, 241), rgb(42, 10, 184));
+  z-index: 100;
+  transition: left 0.5s;
+}
+.nav--active {
+  left: 0;
+}
+.nav__items {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.nav__item {
+  list-style: none;
+  font-size: 2.8rem;
+  margin-bottom: 1.5em;
+}
+.nav__item a {
+  position: relative;
+  text-decoration: none;
+  color: #fff;
+  padding: 0.5em 1em;
+}
+.nav__item a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0px;
+  width: 3px;
+  height: 100%;
+  transform: scaleY(0);
+  background-color: #fff;
+  transition: transform 0.3s;
+}
+.nav__item a:hover::after {
+  transform: scaleY(1);
+}
+
+.header {
+  position: relative;
+  height: 75vh;
+  color: #fff;
+}
+.header__text-box {
+  height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.header__img {
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(45deg, rgba(20, 105, 241, 0.75), rgba(42, 10, 184, 0.75)), url("../img/header-mini.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-attachment: unset;
+}
+.header__heading {
+  font-size: 4.8rem;
+  font-weight: 300;
+  font-family: "Dancing Script", cursive;
+  padding: 0.2em 0.5em;
+}
+.header__text {
+  font-size: 1.4rem;
+  margin: 0 2em 2em;
+}
+.header__btn {
+  position: relative;
+  border-radius: 8px;
+  padding: 1em 2em;
+  border: none;
+  background-color: #fff;
+  color: #2e2e2e;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.header__btn::after {
+  background-color: #eee;
+}
+
+.dreams__box {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1.5em;
+}
+.dreams__img {
+  width: 100%;
+  margin-bottom: 1em;
+}
+.dreams__box-text {
+  padding: 0em 0 3em;
+}
+.dreams__title {
+  margin-top: 1em 0;
+  font-size: 1.8rem;
+}
+.dreams__text {
+  margin-top: 0.5em;
+  color: #2e2e2e;
+  font-size: 1.4rem;
+}
+
+.hero-img {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(45deg, rgba(20, 105, 241, 0.75), rgba(42, 10, 184, 0.75)), url("../img/hero-mini.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 80vh;
+  color: #fff;
+  text-align: center;
+}
+.hero-img__title {
+  font-size: 4.8rem;
+  font-weight: 300;
+  font-family: "Dancing Script", cursive;
+  padding: 0.2em 0.5em;
+}
+.hero-img__text {
+  font-size: 1.6rem;
+}
+.hero-img hr {
+  width: 80%;
+  margin: 1.5em;
+}
+
+.islands {
+  color: #fff;
+}
+
+.islands__cards {
+  display: flex;
+  flex-direction: column;
+  padding: 0 2em;
+}
+
+.islands__card {
+  position: relative;
+  border-radius: 8px;
+  margin-bottom: 3em;
+  display: flex;
+  flex-direction: column;
+  perspective: 1000px;
+}
+.islands__card-front {
+  transition: transform 1s, opacity 1s;
+}
+.islands__card:hover .islands__card-front {
+  opacity: 0;
+  transform: rotateY(-180deg);
+}
+.islands__card:hover .islands__card-back {
+  opacity: 1;
+  transform: rotateY(0deg);
+}
+.islands__card-title {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+  font-family: "Dancing Script", cursive;
+  font-size: 2.8rem;
+}
+.islands__card-img {
+  height: 450px;
+  background-size: cover;
+  background-position: center;
+}
+.islands__card-img--first {
+  background-image: linear-gradient(45deg, rgba(8, 206, 255, 0.75), rgba(8, 24, 255, 0.75)), url("../img/island1.jpg");
+}
+.islands__card-img--second {
+  background-image: linear-gradient(45deg, rgba(20, 105, 241, 0.75), rgba(42, 10, 184, 0.75)), url("../img/island2.jpg");
+}
+.islands__card-img--third {
+  background-image: linear-gradient(45deg, rgba(190, 10, 214, 0.75), rgba(68, 0, 255, 0.75)), url("../img/island3.jpg");
+}
+.islands__card-btn--more {
+  position: absolute;
+  border: none;
+  background: none;
+  color: #fff;
+  bottom: 2em;
+  right: 2em;
+  padding: 1em;
+}
+.islands__card-btn--more i {
+  margin-right: 0.2em;
+}
+.islands__card-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(circle at top right, rgb(0, 78, 255) 0%, rgb(0, 212, 255) 100%);
+  opacity: 0;
+  transform: rotateY(180deg);
+  transition: transform 1s, opacity 1s;
+}
+.islands__card-info-list-items {
+  padding-top: 1.2em;
+}
+.islands__card-info-list-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid white;
+  width: 80%;
+  margin: 0 auto;
+  padding: 1.4em;
+  font-size: 1.4rem;
+}
+.islands__card-info-list-item:last-child {
+  border-bottom: none;
+}
+.islands__card-info-btn {
+  position: absolute;
+  left: 50%;
+  bottom: 2em;
+  transform: translateX(-50%);
+}
+.islands__card-info-btn--select {
+  width: 80%;
+  padding: 0.8em 1.6em;
+  font-size: 1.4rem;
+  background-color: #00ffaa;
+  border-radius: 8px;
+  border: none;
+}
+.islands__card-info-btn--select::after {
+  background-color: #0fe29c;
+}
+
+.offers {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(45deg, rgba(20, 105, 241, 0.75), rgba(42, 10, 184, 0.75)), url("../img/offer-mini.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+.offers__box {
+  display: flex;
+  flex-direction: column;
+  margin: 3em;
+  overflow: hidden;
+}
+.offers__img {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  transition: transform 0.3s;
+}
+.offers__img:hover {
+  transform: scale(1.1);
+}
+.offers__description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fff;
+  padding: 3em;
+  z-index: 1;
+}
+.offers__title {
+  font-size: 2.4rem;
+  font-weight: 300;
+}
+.offers__text {
+  margin-top: 1em;
+  font-size: 1.4rem;
+  color: #2e2e2e;
+}
+.offers__text--bottom {
+  margin-bottom: 2em;
+}
+.offers__btn {
+  position: relative;
+  padding: 1em 2em;
+  display: block;
+  background-color: #1755e7;
+  width: 100%;
+  margin: 0 auto;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+}
+.offers__btn::after {
+  background-color: #164dcc;
+}
+.offers .section-heading {
+  color: #fff;
+}
+
+.reviews {
+  padding: 4em;
+}
+.reviews__box {
+  position: relative;
+  border: 1px solid rgba(47, 47, 47, 0.0549019608);
+  box-shadow: 3px 3px 5px rgba(47, 47, 47, 0.1843137255);
+  margin: 8em;
+  width: 100%;
+  margin: 10em auto;
+  padding: 2em;
+}
+.reviews__img {
+  position: absolute;
+  top: -50px;
+  right: 4em;
+  width: 80px;
+  height: 80px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  border-radius: 50%;
+}
+.reviews__text {
+  font-size: 1.4rem;
+  padding: 1em;
+}
+.reviews__name {
+  padding: 1em;
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+@media (min-width: 576px) {
+  .header__heading {
+    font-size: 5rem;
+    font-weight: 300;
+    font-family: "Dancing Script", cursive;
+    padding: 0.2em 0.5em;
+  }
+  .header__text {
+    font-size: 1.6rem;
+    margin: 0 2em 1.5em;
+  }
+  .dreams__box {
+    flex-direction: row;
+    margin-bottom: 3em;
+    padding: 0;
+  }
+  .dreams__box-img {
+    width: 40%;
+    max-height: 300px;
+    margin-right: 4rem;
+  }
+  .dreams__box-img--right {
+    order: 1;
+    margin-left: 4rem;
+    margin-right: 0;
+  }
+  .dreams__box-text {
+    width: 60%;
+    background-color: #fff;
+  }
+  .dreams__box-text--right {
+    text-align: right;
+  }
+  .dreams__title {
+    font-size: 1.8rem;
+  }
+  .offers__box {
+    flex-direction: row;
+    margin: 2em;
+  }
+  .offers__box--right {
+    flex-direction: row-reverse;
+  }
+  .offers__img {
+    width: 50%;
+  }
+  .offers__title {
+    font-size: 3.6rem;
+  }
+}
+@media (min-width: 768px) {
+  .header__heading {
+    font-size: 8rem;
+    padding: 0;
+  }
+  .header__text {
+    font-size: 1.8rem;
+  }
+  .header__btn {
+    font-size: 1.5rem;
+  }
+  .nav__item {
+    font-size: 4rem;
+  }
+  .dreams__title {
+    font-size: 2rem;
+  }
+  .dreams__text {
+    font-size: 2rem;
+  }
+  .hero-img hr {
+    width: 60%;
+    margin: 1.5em;
+  }
+  .hero-img__title {
+    font-size: 4.8rem;
+  }
+  .hero-img__text {
+    font-size: 2.2rem;
+  }
+  .islands .islands__cards {
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0;
+    width: 100%;
+  }
+  .islands .islands__card {
+    width: 40%;
+    margin: 1em;
+    margin: 1.5em;
+  }
+}
+@media (min-width: 992px) {
+  .header__img {
+    background-image: linear-gradient(45deg, rgba(20, 105, 241, 0.75), rgba(42, 10, 184, 0.75)), url("../img/header-big.jpg");
+  }
+  .header__heading {
+    font-size: 10rem;
+  }
+  .header__text {
+    font-size: 2.2rem;
+  }
+  .burger-btn {
+    top: 50px;
+    right: 50px;
+  }
+  .dreams__box-text {
+    padding: 1em 0 3em;
+  }
+  .dreams__title {
+    font-size: 3.6rem;
+  }
+  .dreams__text {
+    font-size: 2.2rem;
+  }
+  .dreams__box {
+    margin-bottom: 5em;
+  }
+  .hero-img {
+    background-image: linear-gradient(45deg, rgba(20, 105, 241, 0.75), rgba(42, 10, 184, 0.75)), url("../img/hero-big.jpg");
+  }
+  .hero-img__title {
+    font-size: 7.2rem;
+  }
+  .offers {
+    position: relative;
+    overflow: hidden;
+    background-image: linear-gradient(45deg, rgba(20, 105, 241, 0.75), rgba(42, 10, 184, 0.75)), url("../img/offer-big.jpg");
+  }
+  .offers__box {
+    max-height: 320px;
+  }
+}
+@media (min-width: 1100px) {
+  .burger-btn {
+    top: 50px;
+    right: 50px;
+  }
+  .nav__item {
+    font-size: 4.5rem;
+  }
+  .dreams__box-text {
+    padding: 5em 1em 3em;
+  }
+  .islands .islands__card {
+    width: 30%;
+    margin: 1em;
+    margin: 1.5em;
+  }
+  .offers__img {
+    width: 40%;
+  }
+}/*# sourceMappingURL=style.css.map */

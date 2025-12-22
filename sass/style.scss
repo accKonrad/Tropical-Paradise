@@ -419,14 +419,19 @@ body {
 		box-shadow: 3px 3px 5px #2f2f2f2f;
 		margin: 8em;
 		width: 100%;
-		margin: 10em auto;
+		margin: 10em 2em;
 		padding: 2em;
+		transition: transform 0.3s;
+
+		&:hover {
+			transform: scale(0.9);
+		}
 	}
 
 	&__img {
 		position: absolute;
 		top: -50px;
-		right: 4em;
+		right: 80px;
 		width: 80px;
 		height: 80px;
 		object-fit: cover;
@@ -436,7 +441,7 @@ body {
 
 	&__text {
 		font-size: 1.4rem;
-		padding: 1em;
+		padding: 1.5em;
 	}
 
 	&__name {
@@ -577,6 +582,12 @@ body {
 			width: 40%;
 			margin: 1em;
 			margin: 1.5em;
+		}
+	}
+
+	.reviews {
+		&__text {
+			font-size: 1.8rem;
 		}
 	}
 }

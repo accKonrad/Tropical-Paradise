@@ -465,13 +465,17 @@ body {
   box-shadow: 3px 3px 5px rgba(47, 47, 47, 0.1843137255);
   margin: 8em;
   width: 100%;
-  margin: 10em auto;
+  margin: 10em 2em;
   padding: 2em;
+  transition: transform 0.3s;
+}
+.reviews__box:hover {
+  transform: scale(0.9);
 }
 .reviews__img {
   position: absolute;
   top: -50px;
-  right: 4em;
+  right: 80px;
   width: 80px;
   height: 80px;
   -o-object-fit: cover;
@@ -482,7 +486,7 @@ body {
 }
 .reviews__text {
   font-size: 1.4rem;
-  padding: 1em;
+  padding: 1.5em;
 }
 .reviews__name {
   padding: 1em;
@@ -581,6 +585,9 @@ body {
     width: 40%;
     margin: 1em;
     margin: 1.5em;
+  }
+  .reviews__text {
+    font-size: 1.8rem;
   }
 }
 @media (min-width: 992px) {

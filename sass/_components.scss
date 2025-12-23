@@ -13,6 +13,7 @@
 }
 :root {
 	font-size: 62.5%;
+	scroll-behavior: smooth;
 }
 
 .white-block {
@@ -51,6 +52,7 @@
 .btn-special-animation {
 	z-index: 0;
 	overflow: hidden;
+	cursor: pointer;
 
 	&::after {
 		position: absolute;

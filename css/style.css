@@ -12,6 +12,7 @@
 
 :root {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 .white-block {
@@ -48,6 +49,7 @@
 .btn-special-animation {
   z-index: 0;
   overflow: hidden;
+  cursor: pointer;
 }
 .btn-special-animation::after {
   position: absolute;
@@ -226,7 +228,7 @@ body {
   background-color: #fff;
   color: #2e2e2e;
   text-transform: uppercase;
-  cursor: pointer;
+  text-decoration: none;
 }
 .header__btn::after {
   background-color: #eee;
@@ -538,6 +540,35 @@ body {
 .contact__form-btn::after {
   background-color: #164dcc;
 }
+.contact .white-block-left {
+  background-color: rgb(40, 40, 40);
+}
+
+.footer {
+  color: #fff;
+  background-color: rgb(40, 40, 40);
+}
+.footer__box-desktop {
+  display: none;
+}
+.footer__box-title {
+  font-size: 2.8rem;
+}
+.footer__box i {
+  margin-right: 0.5em;
+}
+.footer__box p {
+  padding: 2em 0;
+  font-size: 1.4rem;
+}
+.footer .wrapper {
+  padding: 4em 4em 2em;
+}
+.footer__text-bottom {
+  text-align: center;
+  font-size: 1.6rem;
+  padding: 2em;
+}
 
 @media (min-width: 576px) {
   .header__heading {
@@ -633,6 +664,34 @@ body {
   }
   .reviews__text {
     font-size: 1.8rem;
+  }
+  .footer__boxes {
+    padding: 4em 0;
+    display: flex;
+  }
+  .footer__box {
+    margin: 0 2em;
+    width: 100%;
+  }
+  .footer__box-desktop {
+    display: block;
+    width: 50%;
+  }
+  .footer__box-desktop-title {
+    font-size: 2.8rem;
+    margin-bottom: 1em;
+  }
+  .footer__box-desktop a {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.4rem;
+    color: #fff;
+    text-decoration: none;
+    margin-top: 1em;
+    transition: color 0.3s;
+  }
+  .footer__box-desktop a:hover {
+    color: #eee;
   }
 }
 @media (min-width: 992px) {

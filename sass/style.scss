@@ -146,7 +146,7 @@ body {
 		background-color: $pure-white;
 		color: $dark;
 		text-transform: uppercase;
-		cursor: pointer;
+		text-decoration: none;
 
 		&::after {
 			background-color: $light-white;
@@ -472,9 +472,6 @@ body {
 			@include input;
 		}
 
-		&-input {
-		}
-
 		&-textarea {
 			min-width: 100%;
 			min-height: 150px;
@@ -501,6 +498,43 @@ body {
 				background-color: $secondary-color;
 			}
 		}
+	}
+	.white-block-left {
+		background-color: rgb(40, 40, 40);
+	}
+}
+
+// FOOTER
+
+.footer {
+	color: $pure-white;
+	background-color: rgb(40, 40, 40);
+
+	&__box {
+		&-desktop {
+			display: none;
+		}
+
+		&-title {
+			font-size: 2.8rem;
+		}
+		i {
+			margin-right: 0.5em;
+		}
+		p {
+			padding: 2em 0;
+			font-size: 1.4rem;
+		}
+	}
+
+	.wrapper {
+		padding: 4em 4em 2em;
+	}
+
+	&__text-bottom {
+		text-align: center;
+		font-size: 1.6rem;
+		padding: 2em;
 	}
 }
 
@@ -641,6 +675,40 @@ body {
 	.reviews {
 		&__text {
 			font-size: 1.8rem;
+		}
+	}
+
+	.footer {
+		&__boxes {
+			padding: 4em 0;
+			display: flex;
+		}
+
+		&__box {
+			margin: 0 2em;
+			width: 100%;
+
+			&-desktop {
+				display: block;
+				width: 50%;
+
+				&-title {
+					font-size: 2.8rem;
+					margin-bottom: 1em;
+				}
+				a {
+					display: flex;
+					flex-direction: column;
+					font-size: 1.4rem;
+					color: $pure-white;
+					text-decoration: none;
+					margin-top: 1em;
+					transition: color 0.3s;
+					&:hover {
+						color: $light-white;
+					}
+				}
+			}
 		}
 	}
 }

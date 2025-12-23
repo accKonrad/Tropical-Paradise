@@ -187,6 +187,22 @@ body {
 .nav__item a:hover::after {
   transform: scaleY(1);
 }
+.nav .slide {
+  animation: slide 1s both;
+}
+@keyframes slide {
+  0% {
+    left: 600%;
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    left: 0;
+    opacity: 1;
+  }
+}
 
 .header {
   position: relative;

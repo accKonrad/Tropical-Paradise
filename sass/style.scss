@@ -411,8 +411,6 @@ body {
 // REVIEWS
 
 .reviews {
-	padding: 4em;
-
 	&__box {
 		position: relative;
 		border: 1px solid #2f2f2f0e;
@@ -448,6 +446,61 @@ body {
 		padding: 1em;
 		font-weight: bold;
 		font-size: 1.6rem;
+	}
+}
+
+// CONTACT
+.contact {
+	position: relative;
+	overflow: hidden;
+	background-color: #eaeaea;
+
+	&__form {
+		&-field {
+			display: flex;
+			flex-direction: column;
+			padding: 1em;
+		}
+
+		&-label {
+			padding: 0.2em;
+			@include label;
+		}
+
+		&-input,
+		&-textarea {
+			@include input;
+		}
+
+		&-input {
+		}
+
+		&-textarea {
+			min-width: 100%;
+			min-height: 150px;
+		}
+
+		&-btn {
+			position: relative;
+			display: block;
+			margin-left: auto;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 0.8em 1.6em;
+			margin-top: 20px;
+			width: 25%;
+			min-width: 150px;
+			font-size: 1.6rem;
+			border-radius: 8px;
+			border: none;
+			background-color: $main-color;
+			color: $pure-white;
+
+			&::after {
+				background-color: $secondary-color;
+			}
+		}
 	}
 }
 
@@ -643,6 +696,12 @@ body {
 
 		&__box {
 			max-height: 320px;
+		}
+	}
+
+	.contact__form {
+		&-label {
+			font-size: 2.2rem;
 		}
 	}
 }
